@@ -130,6 +130,7 @@ typeCheckingMode = "strict"
 reportAssignmentType = "none"
 reportIncompatibleVariableOverride = "none"
 reportUnknownMemberType = "none"
+reportMissingTypeStubs = "none"
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests"]
