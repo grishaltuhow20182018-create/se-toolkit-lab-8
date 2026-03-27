@@ -1,14 +1,18 @@
 [tool.uv.workspace]
 members = [
   "backend",
-  "mcp",
   "qwen-code-api",
-  # "nanobot-websocket-channel",
+  "mcp/mcp-lms",
+  "mcp/mcp-obs",
+  "nanobot-websocket-channel/nanobot-webchat",
+  "nanobot-websocket-channel/client-telegram-bot",
 ]
 
 [tool.uv.sources]
-lms-mcp = { workspace = true }
-# nanobot-websocket-channel = { workspace = true }
+mcp-lms = { path = "mcp/mcp-lms", editable = true }
+mcp-obs = { path = "mcp/mcp-obs", editable = true }
+nanobot-webchat = { path = "nanobot-websocket-channel/nanobot-webchat", editable = true }
+client-telegram-bot = { path = "nanobot-websocket-channel/client-telegram-bot", editable = true }
 
 [dependency-groups]
 dev = [
@@ -118,7 +122,15 @@ include = [
   "qwen-code-api",
   # "nanobot-websocket-channel",
 ]
-extraPaths = ["backend", "qwen-code-api"]
+extraPaths = [
+  "backend",
+  "mcp/mcp-lms/src",
+  "mcp/mcp-obs/src",
+  "qwen-code-api/src",
+  "nanobot-websocket-channel/client-telegram-bot/src",
+  "nanobot-websocket-channel/nanobot-channel-protocol/src",
+  "nanobot-websocket-channel/nanobot-webchat/src",
+]
 exclude = ["**/__pycache__", "**/node_modules", "**/.*", ".venv", ".direnv"]
 typeCheckingMode = "strict"
 reportAssignmentType = "none"
